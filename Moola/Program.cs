@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+
 namespace Moola
 {
     public class Program
@@ -5,7 +8,7 @@ namespace Moola
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.Services.AddDbContext<MyContext>(b => b.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
