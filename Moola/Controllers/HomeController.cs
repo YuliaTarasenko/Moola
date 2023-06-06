@@ -30,10 +30,7 @@ namespace Moola.Controllers
         {
             return View();
         }
-        public IActionResult Income()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

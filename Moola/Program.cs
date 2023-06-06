@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Moola
@@ -10,7 +11,17 @@ namespace Moola
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<MyContext>();
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+                .AddViewOptions(options =>
+                {
+                    options.HtmlHelperOptions.ClientValidationEnabled = true;
+                    options.HtmlHelperOptions.Html5DateRenderingMode = Microsoft.AspNetCore.Mvc.Rendering.Html5DateRenderingMode.CurrentCulture;
+                })
+                .AddDataAnnotationsLocalization()
+                .AddMvcLocalization()
+                .Services
+                .AddMvc(options => { options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); })
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
             var app = builder.Build();
 

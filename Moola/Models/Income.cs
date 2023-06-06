@@ -11,14 +11,14 @@
         public Account Account { get; set; }
 
         public Income() { }
-        public Income(int id, DateTime incomeDate, decimal amount, int categoryId, string note, int accountId)
+        public Income(int id, DateTime incomeDate, decimal amount, Category category, string note, Account account)
         {
             Id = id;
             IncomeDate = incomeDate;
             Amount = amount;
-            CategoryId = categoryId;
             Note = note;
-            AccountId = accountId;
+            Category = category;
+            Account = account;
         }
     }
 }

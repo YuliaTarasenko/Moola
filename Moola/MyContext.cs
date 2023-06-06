@@ -26,8 +26,11 @@ namespace Moola
                 HasForeignKey(c => c.AccountId).IsRequired();
         }
 
-        public MyContext(DbContextOptions<MyContext> options) : base(options)
-        {
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+       optionsBuilder.UseSqlServer(
+           "Data Source=LAPTOP-47TRIN9C\\MSSQLSERVER01;" +
+           "Initial Catalog=Moola;" +
+           "Integrated Security=True;" +
+           "TrustServerCertificate=True");
     }
 }

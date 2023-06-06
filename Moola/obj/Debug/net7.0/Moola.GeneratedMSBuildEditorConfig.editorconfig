@@ -16,10 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Юлия\Desktop\Moola\Moola
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Юлия/Desktop/Moola/Moola/Views/Home/Incomes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmNvbWVzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Юлия/Desktop/Moola/Moola/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +34,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Юлия/Desktop/Moola/Moola/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Юлия/Desktop/Moola/Moola/Views/User/AddIncome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRJbmNvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Юлия/Desktop/Moola/Moola/Views/User/Balance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCYWxhbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Юлия/Desktop/Moola/Moola/Views/User/EditIncome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0SW5jb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Юлия/Desktop/Moola/Moola/Views/User/Incomes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmNvbWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Юлия/Desktop/Moola/Moola/Views/_ViewImports.cshtml]

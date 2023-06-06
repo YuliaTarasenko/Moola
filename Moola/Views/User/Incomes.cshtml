@@ -1,0 +1,40 @@
+﻿@inject MyContext Ctx
+
+@{
+    ViewData["Title"] = "Incomes";
+    var bottomIncomes = Ctx.Incomes.OrderByDescending(i => i.Id).Take(20).ToList();
+}
+
+<h1>Incomes</h1>
+
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-success">Right</button>
+    <a asp-action="AddIncome" class="btn btn-success active">Add new Income</a>
+</div>
+
+
+<table class="table table-success table-striped-columns">
+<thead>
+        <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Category</th>
+            <th scope="col">Account</th>
+            <th scope="col">Note</th>
+            <th scope="col">Date</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var income in bottomIncomes)
+        {
+            <tr>
+                <td>@income.Amount</td>
+                <td>@income.Category</td>
+                <td>@income.Account</td>
+                <td>@income.Note</td>
+                <td>@income.IncomeDate</td>
+                <td><a asp-action="EditIncome" asp-route-id="@income.Id">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
