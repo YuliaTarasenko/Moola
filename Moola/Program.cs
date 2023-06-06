@@ -8,7 +8,7 @@ namespace Moola
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddDbContext<MyContext>(b => b.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDbContext<MyContext>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

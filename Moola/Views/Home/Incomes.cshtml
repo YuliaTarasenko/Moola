@@ -1,0 +1,46 @@
+﻿@model Income
+
+@{
+    ViewData["Title"] = "Add new Income";
+}
+
+<div class="col-md-6 card p-3 mx-auto">
+    <h2>Add new Income</h2>
+    <form asp-action="AddNewIncome" method="post">
+        <div class="form-group">
+            <label asp-for="Amount">Amount</label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category">Category</label>
+            <select asp-for="Category" class="form-select" aria-label="Default select example">
+                <option selected>Choose Category</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+                <label asp-for="Account">Account</label>
+                <select asp-for="Account" class="form-select">
+                    <option selected>Choose Account</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Credit">Credit</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Note">Note</label>
+            <input asp-for="Note" class="form-control" />
+            <span asp-validation-for="Note" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="IncomeDate">Date</label>
+            <input asp-for="IncomeDate" class="form-control" />
+            <span asp-validation-for="IncomeDate" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Add</button>
+    </form>
+</div>
+
