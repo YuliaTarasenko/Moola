@@ -9,6 +9,16 @@ namespace Moola.Controllers
         private readonly MyContext _context;
         public UserController(MyContext context) => _context = context;
 
+        public IActionResult Balance()
+        {
+            return View();
+        }
+
+        public IActionResult Incomes()
+        {
+            return View();
+        }
+
         public IActionResult AddIncome()
         {
             return View();
@@ -37,14 +47,6 @@ namespace Moola.Controllers
             return RedirectToAction("Incomes");
         }
 
-        public IActionResult Balance()
-        {
-            return View();
-        }
-
-        public IActionResult Incomes()
-        {
-            return View();
-        }
+        
     }
 }

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "Moola/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6"
