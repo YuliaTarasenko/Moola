@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using Moola.Models;
 
 namespace Moola.Controllers

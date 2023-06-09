@@ -9,16 +9,5 @@
         public int AccountId { get; set; }
         public Category Category { get; set; }
         public Account Account { get; set; }
-
-        public Income() { }
-        public Income(int id, DateTime incomeDate, decimal amount, Category category, string note, Account account)
-        {
-            Id = id;
-            IncomeDate = incomeDate;
-            Amount = amount;
-            Note = note;
-            Category = category;
-            Account = account;
-        }
     }
 }

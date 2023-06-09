@@ -1,6 +1,8 @@
-﻿@inject MyContext Ctx
+﻿@using Microsoft.EntityFrameworkCore;
+@inject MyContext Ctx
 
 @{
+    var incomes = Ctx.Incomes.Include(i=>i.Account).Include(i=>i.Category).OrderByDescending(e => e.Id).Take(10).ToList();
     ViewData["Title"] = "Incomes";
 }
 
@@ -19,9 +21,18 @@
             <th scope="col">Account</th>
             <th scope="col">Note</th>
             <th scope="col">Date</th>
-            <th scope="col">Edit</th>
         </tr>
     </thead>
     <tbody>
+        @foreach (var income in incomes)
+        {
+            <tr>
+                <td>@income.Amount</td>
+                <td>@income.Category.Name</td>
+                <td>@income.Account.AccountName</td>
+                <td>@income.Note</td>
+                <td>@income.IncomeDate</td>
+            </tr>
+        }
     </tbody>
 </table>

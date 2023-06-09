@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Moola;
 using Moola.Models;
 
 namespace Moola.Controllers
@@ -17,37 +12,16 @@ namespace Moola.Controllers
         public ExpensesController(MyContext context)=> _context = context;
 
         // GET: Expenses
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var myContext = _context.Expenses.Include(e => e.Account).Include(e => e.Category);
-            return View(await myContext.ToListAsync());
+            return View();
         }
 
-        // GET: Expenses/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Expenses == null)
-            {
-                return NotFound();
-            }
-
-            var expense = await _context.Expenses
-                .Include(e => e.Account)
-                .Include(e => e.Category)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (expense == null)
-            {
-                return NotFound();
-            }
-
-            return View(expense);
-        }
+        
 
         // GET: Expenses/Create
         public IActionResult Create()
         {
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "Id", "Id");
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id");
             return View();
         }
 
@@ -55,12 +29,11 @@ namespace Moola.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Expense expense)
+        public IActionResult Create(Expense expense)
         {
-            var newId = await _context.Expenses.CountAsync() + 1;
+            var newId =_context.Expenses.Count() + 1;
             _context.Expenses.Add(expense with { Id = newId });
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
             return RedirectToAction("Index");
 
         }

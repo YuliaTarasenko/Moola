@@ -1,9 +1,10 @@
-﻿@model IEnumerable<Moola.Models.Expense>
+﻿@using Microsoft.EntityFrameworkCore;
+@model Expense
 @inject MyContext Ctx
 
 @{
     ViewData["Title"] = "Expenses";
-    var expenses = Ctx.Expenses.OrderByDescending(e => e.Id).Take(10).ToList();
+    var expenses = Ctx.Expenses.Include(e=>e.Account).Include(e=>e.Category).ToList();
 }
 
 <h1>Expenses</h1>
@@ -11,7 +12,7 @@
 <p>
     <a asp-action="Create">Add Expense</a>
 </p>
-<table class="table">
+<table class="table table-success table-striped-columns">
     <thead>
         <tr>
             <th scope="col">Amount</th>
@@ -19,48 +20,19 @@
             <th scope="col">Account</th>
             <th scope="col">Note</th>
             <th scope="col">Date</th>
-            <th></th>
+            @*<th></th>*@
         </tr>
     </thead>
     <tbody>
-        @foreach(var expense in expenses)
-       {
+        @foreach (var exp in expenses)
+        {
             <tr>
-                <td>@expense.Amount</td>
-                <td>@expense.Category.Name</td>
-                <td>@expense.Account.AccountName</td>
-                <td>@expense.Note</td>
-                <td>@expense.ExpenseDate</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@expense.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@expense.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@expense.Id">Delete</a>
-                </td>
+                <td>@exp.Amount</td>
+                <td>@exp.Category.Name</td>
+                <td>@exp.Account.AccountName</td>
+                <td>@exp.Note</td>
+                <td>@exp.ExpenseDate</td>
             </tr>
         }
-@*@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Account.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}*@
     </tbody>
 </table>
