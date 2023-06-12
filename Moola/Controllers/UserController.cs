@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Moola.Logic;
 using Moola.Models;
 
 namespace Moola.Controllers
@@ -10,42 +10,13 @@ namespace Moola.Controllers
 
         public IActionResult Balance()
         {
+            decimal totalAmount = _context.Incomes.Sum(i => i.Amount) - _context.Expenses.Sum(e => e.Amount);
+            decimal totalIncomesAmount = _context.Incomes.Sum(i => i.Amount);
+            decimal totalExpensesAmount = _context.Expenses.Sum(e => e.Amount);
+            ViewBag.TotalAmount = totalAmount;
+            ViewBag.TotalIncomesAmount = totalIncomesAmount;
+            ViewBag.TotalExpensesAmount = totalExpensesAmount;
             return View();
         }
-
-        public IActionResult Incomes()
-        {
-            return View();
-        }
-
-        public IActionResult AddIncome()
-        {
-            return View();
-        }
-
-    [HttpPost]
-        public IActionResult AddIncome(Income income)
-        {
-            var newId = _context.Incomes.Count() + 1;
-            _context.Incomes.Add(income with { Id = newId});
-            _context.SaveChanges();
-            return RedirectToAction("Incomes");
-        }
-
-        public IActionResult EditIncome(int id)
-        {
-            return View(_context.Incomes.Find(id));
-        }
-
-        [HttpPost]
-        public IActionResult EditIncome(Income income)
-        {
-            var dbIncome = _context.Incomes.Find(income.Id);
-            _context.Entry(dbIncome).CurrentValues.SetValues(income);
-            _context.SaveChanges();
-            return RedirectToAction("Incomes");
-        }
-
-        
     }
 }

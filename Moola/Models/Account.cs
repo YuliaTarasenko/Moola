@@ -1,8 +1,7 @@
 ﻿namespace Moola.Models
 {
-    public sealed record Account
+    public sealed record Account : EntityWithId
     {
-        public int Id { get; set; }
         public string AccountName { get; set; }
         public decimal Amount { get; set; }
         public List<Expense> Expenses { get; set; }

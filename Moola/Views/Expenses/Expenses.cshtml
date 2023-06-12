@@ -1,6 +1,4 @@
-﻿@using Microsoft.EntityFrameworkCore;
-@model Expense
-@inject MyContext Ctx
+﻿@model Expense
 
 @{
     ViewData["Title"] = "Expenses";
@@ -18,9 +16,9 @@
             <th scope="col">Amount</th>
             <th scope="col">Category</th>
             <th scope="col">Account</th>
-            <th scope="col">Note</th>
+            @*<th scope="col">Note</th>*@
             <th scope="col">Date</th>
-            @*<th></th>*@
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -30,8 +28,13 @@
                 <td>@exp.Amount</td>
                 <td>@exp.Category.Name</td>
                 <td>@exp.Account.AccountName</td>
-                <td>@exp.Note</td>
+                @*<td>@exp.Note</td>*@
                 <td>@exp.ExpenseDate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@exp.Id">Edit ||  </a>
+                    <a asp-action="Delete" asp-route-id="@exp.Id">Delete  ||  </a>
+                    <a asp-action="Details" asp-route-id="@exp.Id">Details</a>
+                </td>
             </tr>
         }
     </tbody>

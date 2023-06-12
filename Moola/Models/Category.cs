@@ -1,10 +1,7 @@
-﻿using System.Linq.Expressions;
-
-namespace Moola.Models
+﻿namespace Moola.Models
 {
-    public sealed record Category
+    public sealed record Category : EntityWithId
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
         public string Type { get; set; }

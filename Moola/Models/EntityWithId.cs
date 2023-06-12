@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Moola.Models
+﻿namespace Moola.Models
 {
     public record EntityWithId
     {

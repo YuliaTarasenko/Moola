@@ -1,26 +1,25 @@
-﻿@using Microsoft.EntityFrameworkCore;
-@inject MyContext Ctx
+﻿@model Income
 
 @{
-    var incomes = Ctx.Incomes.Include(i=>i.Account).Include(i=>i.Category).OrderByDescending(e => e.Id).Take(10).ToList();
+    var incomes = Ctx.Incomes.Include(i => i.Account).Include(i => i.Category).OrderByDescending(e => e.Id).Take(10).ToList();
     ViewData["Title"] = "Incomes";
 }
 
 <h1>Incomes</h1>
 
 <div class="btn-group" role="group">
-    <a asp-action="AddIncome" class="btn btn-success active">Add new Income</a>
+    <a asp-action="Create" class="btn btn-success active">Add new Income</a>
 </div>
 
 
 <table class="table table-success table-striped-columns">
-<thead>
+    <thead>
         <tr>
             <th scope="col">Amount</th>
             <th scope="col">Category</th>
             <th scope="col">Account</th>
-            <th scope="col">Note</th>
             <th scope="col">Date</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -30,8 +29,13 @@
                 <td>@income.Amount</td>
                 <td>@income.Category.Name</td>
                 <td>@income.Account.AccountName</td>
-                <td>@income.Note</td>
                 <td>@income.IncomeDate</td>
+                <td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@income.Id">Edit ||  </a>
+                    <a asp-action="Details" asp-route-id="@income.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@income.Id">Delete  ||  </a>
+                </td>
             </tr>
         }
     </tbody>

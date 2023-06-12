@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Moola.Logic;
 using Moola.Models;
-using System.Diagnostics;
 
 namespace Moola.Controllers
 {
@@ -30,7 +29,7 @@ namespace Moola.Controllers
         {
             return View();
         }
-        
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
