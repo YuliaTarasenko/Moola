@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Edit Expense";
     var categories = Ctx.Categories.Where(c => c.Type == "Expense").Select(c => new ValueTuple<int, string>(c.Id, c.Name)).ToList();
-    var accounts = Ctx.Accounts.Select(a => new ValueTuple<int, string>(a.Id, a.AccountName)).ToList();
+    var finance = Ctx.Finances.Select(f => new ValueTuple<int, string>(f.Id, f.Name)).ToList();
 }
 
 <div class="col-md-6 card p-3 mx-auto">
@@ -26,14 +26,14 @@
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AccountId">Account</label>
-                <select asp-for="AccountId" class="form-select">
-                    @foreach (var a in accounts)
+                <label asp-for="FinanceId">Finance</label>
+                <select asp-for="FinanceId" class="form-select">
+                    @foreach (var f in finance)
                     {
-                        <option value="@a.Item1">@a.Item2</option>
+                        <option value="@f.Item1">@f.Item2</option>
                     }
                 </select>
-                <span asp-validation-for="AccountId" class="text-danger"></span>
+                <span asp-validation-for="FinanceId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Note">Note</label>

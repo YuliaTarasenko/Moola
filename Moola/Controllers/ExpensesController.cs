@@ -48,7 +48,7 @@ namespace Moola.Controllers
             }
 
             var expense = await _context.Expenses
-                .Include(e => e.Account)
+                .Include(e => e.Finance)
                 .Include(e => e.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (expense == null)
@@ -68,7 +68,7 @@ namespace Moola.Controllers
             }
 
             var expense = await _context.Expenses
-                .Include(e => e.Account)
+                .Include(e => e.Finance)
                 .Include(e => e.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (expense == null)

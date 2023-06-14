@@ -1,0 +1,21 @@
+﻿@model Account
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="col-md-6 m-auto">
+    <form asp-controller="Users" asp-action="Login">
+        <div class="mb-3">
+            <label class="form-label">Your Login</label>
+            <input asp-for="Login" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input asp-for="Password" class="form-control" />
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Log in</button>
+        </div>
+    </form>
+</div>

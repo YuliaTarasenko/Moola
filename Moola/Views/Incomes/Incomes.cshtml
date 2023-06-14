@@ -1,7 +1,7 @@
 ﻿@model Income
 
 @{
-    var incomes = Ctx.Incomes.Include(i => i.Account).Include(i => i.Category).OrderByDescending(e => e.Id).Take(10).ToList();
+    var incomes = Ctx.Incomes.Include(i => i.Category).Include(i => i.Finance).OrderByDescending(i => i.Id).ToList();
     ViewData["Title"] = "Incomes";
 }
 
@@ -28,8 +28,8 @@
             <tr>
                 <td>@income.Amount</td>
                 <td>@income.Category.Name</td>
-                <td>@income.Account.AccountName</td>
-                <td>@income.IncomeDate</td>
+                <td>@income.Finance.Name</td>
+                <td>@income.IncomeDate.ToString("d")</td>
                 <td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@income.Id">Edit ||  </a>

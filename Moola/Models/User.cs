@@ -6,7 +6,7 @@
         public string LastName { get; set; }
         public string Email { get; set; }
         public DateTime Birthday { get; set; }
-        public Authorization Authorization { get; set; }
-        public List<Account> Accounts { get; set; }
+        public Account Account { get; set; }
+        public List<Finance> Finances { get; set; }
     }
 }

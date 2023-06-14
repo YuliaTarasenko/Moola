@@ -1,4 +1,5 @@
-﻿using Moola.Logic;
+﻿using Microsoft.AspNetCore.Authorization;
+using Moola.Logic;
 using Moola.Models;
 
 namespace Moola.Controllers
@@ -19,15 +20,18 @@ namespace Moola.Controllers
         [HttpPost]
         public IActionResult Create(Income income)
         {
-            var newId= 1;
-            if(_context.Incomes.Any()) newId = _context.Incomes.Max(i=>i.Id) + 1;
+            var newId = 1;
+            if (_context.Incomes.Any()) newId = _context.Incomes.Max(i => i.Id) + 1;
             _context.Incomes.Add(income with { Id = newId });
             _context.SaveChanges();
             return RedirectToAction("Incomes");
         }
 
+
+      
         // GET: Incomes/Edit
         public IActionResult Edit(int id) => View(_context.Incomes.Find(id));
+
 
         //POST: Incomes/Edit
         [HttpPost]
@@ -48,7 +52,7 @@ namespace Moola.Controllers
             }
 
             var income = await _context.Incomes
-                .Include(i => i.Account)
+                .Include(i => i.Finance)
                 .Include(i => i.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (income == null)
@@ -68,7 +72,7 @@ namespace Moola.Controllers
             }
 
             var income = await _context.Incomes
-                .Include(i => i.Account)
+                .Include(i => i.Finance)
                 .Include(i => i.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (income == null)

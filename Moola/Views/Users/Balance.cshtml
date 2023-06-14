@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Balance";
+}
+
+@if(User.Identity.IsAuthenticated)
+{
+    <h1>Hello, @User.Identity.Name</h1>
+    <h2>Your Balance</h2>
+    <p>@ViewBag.TotalAmount</p>
+    <p>@ViewBag.CashBalance</p>
+    <p>@ViewBag.CardBalance</p>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                Incomes
+                <p>@ViewBag.TotalIncomesAmount</p>
+            </div>
+            <div class="col">
+                Expenses
+                <p>@ViewBag.TotalExpensesAmount</p>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1>You are not logged in</h1>
+}
+
