@@ -8,6 +8,10 @@ public sealed class MyContext : DbContext
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<Category> Categories { get; set; }
 
+    public MyContext(DbContextOptions<MyContext> options) : base(options)
+    {
+    }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<User>().HasOne(u => u.Account)
@@ -21,11 +25,4 @@ public sealed class MyContext : DbContext
         builder.Entity<Finance>().HasMany(e => e.Expenses).WithOne(c => c.Finance).
             HasForeignKey(c => c.FinanceId).IsRequired();
     }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-   optionsBuilder.UseSqlServer(
-       "Data Source=LAPTOP-47TRIN9C\\MSSQLSERVER01;" +
-       "Initial Catalog=Moola;" +
-       "Integrated Security=True;" +
-       "TrustServerCertificate=True");
 }

@@ -21,11 +21,11 @@ namespace Moola.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Account account)
         {
-            var dbAccount = _context.Accounts.FirstOrDefault(a => a.Login == account.Login && a.Password == account.Password);
+            var hashedPassword = PasswordEncryption.HashPassword(account.Password);
+            var dbAccount = _context.Accounts.FirstOrDefault(a => a.Login == account.Login && a.Password==hashedPassword);
             if (dbAccount == null)
             {
                 ModelState.AddModelError("Login", "Invalid login or password");
-                ViewBag.Message = "Invalid login or password";
                 return RedirectToAction("Login");
             }
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(new ClaimsIdentity(new List<Claim>
@@ -42,6 +42,15 @@ namespace Moola.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
+        }
+
+        //hash the password
+        public IActionResult HashAll()
+        {
+            var accounts = _context.Accounts.ToList();
+            accounts.ForEach(a => a.Password = PasswordEncryption.HashPassword(a.Password));
+            _context.SaveChanges();
+            return RedirectToAction("Balance");
         }
 
         public IActionResult Balance()

@@ -8,3 +8,6 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Builder;
 global using System.ComponentModel.DataAnnotations.Schema;
 global using System.ComponentModel.DataAnnotations;
+global using System.Runtime.Intrinsics.Arm;
+global using System.Text;
+global using System.Security.Cryptography;

@@ -1,0 +1,12 @@
+global using Xunit;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using Microsoft.EntityFrameworkCore;
+global using Moola.Models;
+global using Moola.Controllers;
+global using Moola.Logic;
+global using Microsoft.AspNetCore.Authentication;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using System.Net.Http.Headers;
+global using System.Security.Claims;
+global using System.Text.Encodings.Web;
