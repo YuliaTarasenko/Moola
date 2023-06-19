@@ -1,5 +1,8 @@
-﻿using Moola.Logic;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Moola.Logic;
 using Moola.Models;
+using System.Security.Claims;
 
 namespace Moola.Controllers
 {
@@ -7,14 +10,13 @@ namespace Moola.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly MyContext _context;
-        public HomeController(MyContext context) => _context = context;
-        //add view 
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
+        public HomeController(ILogger<HomeController> logger, MyContext context)
+        {
+            _logger = logger;
+            _context = context;
+        }
+        
+        //title page
         public IActionResult Index()
         {
             return View();
@@ -25,6 +27,7 @@ namespace Moola.Controllers
             return View();
         }
 
+        //information about the app
         public IActionResult Information()
         {
             return View();

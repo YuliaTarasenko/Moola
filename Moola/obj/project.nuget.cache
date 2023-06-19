@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "N6V7R1eHR+xLu6ezcCznDELdzzL1m+JVkT4pmmVN1F+LLV8+7XFvuWA+n5BTAnQ9ABQ2lvHSdX51G4LowGKDUQ==",
+  "dgSpecHash": "L6HVokOK/ngWLlaVycl8UgaLNb9Gev8TYVMyjbVJ16RMCwUq/QKZUKSdSt0ZtPaKakGMQxq3WTF+iAF5K2u32Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\Moola.csproj",
   "expectedPackageFiles": [
@@ -236,7 +236,9 @@
     "C:\\Users\\Юлия\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Юлия\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Юлия\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Юлия\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Юлия\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Юлия\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\Юлия\\.nuget\\packages\\xunit.extensibility.core\\2.4.2\\xunit.extensibility.core.2.4.2.nupkg.sha512"
   ],
   "logs": []
 }

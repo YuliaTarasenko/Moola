@@ -262,3 +262,5 @@ C:\Users\Юлия\Desktop\Moola\Moola\bin\Debug\net7.0\Swashbuckle.AspNetCore.Sw
 C:\Users\Юлия\Desktop\Moola\Moola\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Юлия\Desktop\Moola\Moola\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Юлия\Desktop\Moola\Moola\obj\Debug\net7.0\Moola.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Юлия\Desktop\Moola\Moola\bin\Debug\net7.0\xunit.abstractions.dll
+C:\Users\Юлия\Desktop\Moola\Moola\bin\Debug\net7.0\xunit.core.dll

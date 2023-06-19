@@ -2,9 +2,14 @@
 {
     public sealed record Income : EntityWithId
     {
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime IncomeDate { get; set; }
+        [Required]
+        [Range(0,999999)]
         public decimal Amount { get; set; }
         public int CategoryId { get; set; }
+        [StringLength(100)]
         public string? Note { get; set; }
         public int FinanceId { get; set; }
         public Category Category { get; set; }

@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
             <label asp-for="IncomeDate">Date</label>
-            <input asp-for="IncomeDate" class="form-control" type="date"/>
+            <input asp-for="IncomeDate" class="form-control" type="date" value="@Model.IncomeDate.ToString("d")"/>
             <span asp-validation-for="IncomeDate" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary mt-5">Save</button>
