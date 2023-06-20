@@ -18,21 +18,139 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .title {
-    color: maroon;
+    color: limegreen;
     font-family: 'EB Garamond', serif;
     font-size: 200px;
 }
 
 .bottom-text {
-    color: maroon;
+    color: green;
     font-family: 'EB Garamond', serif;
     font-size: 25px;
+    margin-bottom: 30px;
 }
 
+.information {
+    color: green;
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
 
+.myTable, td{
+    background-color: lightgreen;
+    font-family: 'EB Garamond', serif;
+    font-size: 25px;
+    color: white;
+    border-collapse:collapse;
+    text-align:center;
+    margin-top:20px;
+}
 
+    .myTable th {
+        background-color: limegreen;
+    }
 
+    .myTable td {
+        font-size: 18px;
+        color: white;
+    }
+
+    .myTable td, th {
+        border-top: 1px solid limegreen;
+        border-bottom: 1px solid limegreen;
+    }
+.myTable tr:hover{
+    background-color: limegreen;
+}
+.myButton {
+    background-color: limegreen;
+    font-family: 'EB Garamond', serif;
+    font-size: 30px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.myButton:hover {
+    color: limegreen;
+    background-color: forestgreen;
+}
+
+.myButtonLittle {
+    background-color: limegreen;
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 70px;
+}
+
+.myButtonLittle:hover {
+    color: limegreen;
+    background-color: forestgreen;
+} 
+
+.myButtonBig {
+    background-color: limegreen;
+    font-family: 'EB Garamond', serif;
+    font-size: 30px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 300px;
+    margin-top: 15px;
+}
+
+.myButtonBig:hover {
+    color: limegreen;
+    background-color: forestgreen;
+}
+
+.myHeader {
+    color: limegreen;
+    font-family: 'EB Garamond', serif;
+    font-size: 70px;
+}
+
+.link {
+    color: white;
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    margin: 7px;
+}
+
+.link:hover {
+    color: limegreen;
+}
+
+.navbar {
+    background-color: limegreen;
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    color: white !important;
+}
+
+.footer {
+    text-align: center;
+    background-color: limegreen;
+    color: white !important;
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 40px;
+}

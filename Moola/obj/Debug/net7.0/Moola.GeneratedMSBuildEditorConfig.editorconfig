@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZW5zZXNcRXhwZW5zZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Юлия/Desktop/Moola/Moola/Views/Expenses/SeeMore.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZW5zZXNcU2VlTW9yZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Юлия/Desktop/Moola/Moola/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Юлия/Desktop/Moola/Moola/Views/Incomes/Incomes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21lc1xJbmNvbWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Юлия/Desktop/Moola/Moola/Views/Incomes/SeeMore.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21lc1xTZWVNb3JlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Юлия/Desktop/Moola/Moola/Views/Shared/Error.cshtml]

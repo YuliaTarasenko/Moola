@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Dgdi+cbXSeLHsUU2ODW5SB/uoPaSh1fBRcUnDN1ZXZc=",
+  "Hash": "jmTWNHASm5evQ2yCGON81Bw1AgLdc/QQ68tsjXQcDhY=",
   "Source": "Moola",
   "BasePath": "_content/Moola",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\icons8-money-48.png",
+      "SourceId": "Moola",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\",
+      "BasePath": "_content/Moola",
+      "RelativePath": "icons8-money-48.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons8-money-48.png"
     },
     {
       "Identity": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\js\\site.js",
@@ -1069,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\W6A88Y-ukraine-flag-cut-out-png.png",
+      "SourceId": "Moola",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\",
+      "BasePath": "_content/Moola",
+      "RelativePath": "W6A88Y-ukraine-flag-cut-out-png.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\W6A88Y-ukraine-flag-cut-out-png.png"
     }
   ]
 }

@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\Moola.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\W6A88Y-ukraine-flag-cut-out-png.png",
+      "PackagePath": "staticwebassets\\W6A88Y-ukraine-flag-cut-out-png.png"
+    },
+    {
       "Id": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\icons8-money-48.png",
+      "PackagePath": "staticwebassets\\icons8-money-48.png"
     },
     {
       "Id": "C:\\Users\\Юлия\\Desktop\\Moola\\Moola\\wwwroot\\js\\site.js",

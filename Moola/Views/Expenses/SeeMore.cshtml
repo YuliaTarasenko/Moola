@@ -1,0 +1,34 @@
+﻿@model Expense
+
+@{
+    ViewData["Title"] = "All Expenses";
+    var expenses = Ctx.Expenses.Include(e => e.Finance).Include(e => e.Category).OrderByDescending(e => e.Id).ToList();
+}
+
+<table class="table table-hover myTable">
+    <thead>
+        <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Category</th>
+            <th scope="col">Finance</th>
+            <th scope="col">Date</th>
+            <th scope="col">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exp in expenses)
+        {
+            <tr>
+                <td>@exp.Amount</td>
+                <td>@exp.Category.Name</td>
+                <td>@exp.Finance.Name</td>
+                <td>@exp.ExpenseDate.ToString("d")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@exp.Id" class="link">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@exp.Id" class="link">Delete</a>
+                    <a asp-action="Details" asp-route-id="@exp.Id" class="link">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -13,6 +13,9 @@ namespace Moola.Controllers
         // GET: Incomes
         public IActionResult Incomes() => View();
 
+        //GET: All Incomes
+        public IActionResult SeeMore() => View();
+
         // GET: Incomes/Create
         public IActionResult Create() => View();
 

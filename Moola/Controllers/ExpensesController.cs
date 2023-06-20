@@ -12,6 +12,9 @@ namespace Moola.Controllers
         // GET: Expenses
         public IActionResult Expenses() => View();
 
+        // GET: All Expenses
+        public IActionResult SeeMore() => View();
+
         // GET: Expenses/Create
         public IActionResult Create() => View();
 

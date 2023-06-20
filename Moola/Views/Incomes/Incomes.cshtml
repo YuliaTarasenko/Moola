@@ -1,29 +1,33 @@
 ﻿@model Income
 
 @{
-    var incomes = Ctx.Incomes.Include(i => i.Category).Include(i => i.Finance).OrderByDescending(i => i.Id).ToList();
+    var incomes10 = Ctx.Incomes.Include(i => i.Category).Include(i => i.Finance).OrderByDescending(i => i.Id).Take(10).ToList();
     ViewData["Title"] = "Incomes";
 }
 
-<h1>Incomes</h1>
-
-<div class="btn-group" role="group">
-    <a asp-action="Create" class="btn btn-success active">Add new Income</a>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h1 class="myHeader">Incomes</h1>
+        </div>
+        <div class="col">
+            <a asp-action="Create" class="btn myButtonBig active">Add new Income</a>
+        </div>
+    </div>
 </div>
 
-
-<table class="table table-success table-striped-columns">
+<table class="table table-hover myTable">
     <thead>
         <tr>
             <th scope="col">Amount</th>
             <th scope="col">Category</th>
             <th scope="col">Account</th>
             <th scope="col">Date</th>
-            <th></th>
+            <th scope="col">Details</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var income in incomes)
+        @foreach (var income in incomes10)
         {
             <tr>
                 <td>@income.Amount</td>
@@ -31,12 +35,15 @@
                 <td>@income.Finance.Name</td>
                 <td>@income.IncomeDate.ToString("d")</td>
                 <td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@income.Id">Edit ||  </a>
-                    <a asp-action="Details" asp-route-id="@income.Id">Details</a>
-                    <a asp-action="Delete" asp-route-id="@income.Id">Delete  ||  </a>
+                    <a asp-action="Edit" asp-route-id="@income.Id" class="link">Edit</a>
+                    <a asp-action="Details" asp-route-id="@income.Id" class="link">Details</a>
+                    <a asp-action="Delete" asp-route-id="@income.Id" class="link">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div class="text-center">
+    <a asp-action="SeeMore" class="btn myButton active">See more</a>
+</div>
