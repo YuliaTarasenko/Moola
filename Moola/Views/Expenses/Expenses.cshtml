@@ -2,48 +2,44 @@
 
 @{
     ViewData["Title"] = "Expenses"; 
-    var expenses10 = Ctx.Expenses.Include(e=>e.Finance).Include(e=>e.Category).OrderByDescending(e=>e.Id).Take(10).ToList();
+    var expenses10 = Ctx.Expenses.Include(e=>e.Finance).Include(e=>e.Category).OrderByDescending(e=>e.ExpenseDate).Take(10).ToList();
 }
 
-<div class="container text-center">
-    <div class="row">
-        <div class="col">
-            <h1 class="myHeader">Expenses</h1>
-        </div>
-        <div class="col">
-            <a asp-action="Create" class="btn myButtonBig active">Add new Expense</a>
-        </div>
-    </div>
-</div>
-
-<table class="table table-hover myTable">
-    <thead>
-        <tr>
-            <th scope="col">Amount</th>
-            <th scope="col">Category</th>
-            <th scope="col">Finance</th>
-            <th scope="col">Date</th>
-            <th scope="col">Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var exp in expenses10)
-        {
-            <tr>
-                <td>@exp.Amount</td>
-                <td>@exp.Category.Name</td>
-                <td>@exp.Finance.Name</td>
-                <td>@exp.ExpenseDate.ToString("d")</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@exp.Id" class="link">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@exp.Id" class="link">Delete</a>
-                    <a asp-action="Details" asp-route-id="@exp.Id" class="link">Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
 <div class="text-center">
-    <a asp-action="SeeMore" class="btn myButton active">See more</a>
+    <h1 class="myHeader text-center">Expenses</h1>
+    <hr style="border: 1px solid limegreen " />
+
+    <table class="table table-hover myTable" style="margin-top:30px">
+        <thead>
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+                <th scope="col">Finance</th>
+                <th scope="col">Date</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var exp in expenses10)
+            {
+                <tr>
+                    <td>@exp.Amount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</td>
+                    <td>@exp.Category.Name</td>
+                    <td>@exp.Finance.Name</td>
+                    <td>@exp.ExpenseDate.ToString("d")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@exp.Id" class="link">Edit</a>
+                        <a asp-action="Details" asp-route-id="@exp.Id" class="link">Details</a>
+                        <a asp-action="Delete" asp-route-id="@exp.Id" class="link">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="btn-group" role="group">
+        <a asp-action="Create" class="btn myButtonBig active" style="margin-right:60px">Add new Expense</a>
+    </div>
+    <div class="btn-group" role="group">
+        <a asp-action="SeeMore" class="btn myButtonBig active">See more</a>
+    </div>
 </div>

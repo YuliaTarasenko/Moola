@@ -29,12 +29,9 @@ namespace Moola.Controllers
             _context.SaveChanges();
             return RedirectToAction("Incomes");
         }
-
-
       
         // GET: Incomes/Edit
         public IActionResult Edit(int id) => View(_context.Incomes.Find(id));
-
 
         //POST: Incomes/Edit
         [HttpPost]

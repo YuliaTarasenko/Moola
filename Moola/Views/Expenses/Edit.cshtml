@@ -6,13 +6,13 @@
     var finance = Ctx.Finances.Select(f => new ValueTuple<int, string>(f.Id, f.Name)).ToList();
 }
 
-<div class="col-md-6 card p-3 mx-auto">
-    <h2>Edit Expense</h2>
-        <form asp-action="Edit" method="post">
+<div class="col-md-8 mx-auto text-center">
+    <h2 class="myHeader">Edit Expense</h2>
+    <form class="myForm" asp-action="Edit" method="post">
         @Html.HiddenFor(expense => expense.Id)
             <div class="form-group">
                 <label asp-for="Amount">Amount</label>
-                <input asp-for="Amount" class="form-control" />
+            <input asp-for="Amount" class="form-control" type="number" step="0.01" value="@Model.Amount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,14 +37,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="Note">Note</label>
-                <textarea asp-for="Note" class="form-control" rows="3">Note</textarea>/>
+                <textarea asp-for="Note" class="form-control" rows="3">Note</textarea>
                 <span asp-validation-for="Note" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ExpenseDate">Date</label>
-                <input asp-for="ExpenseDate" class="form-control" type="datetime-local" />
+                <input asp-for="ExpenseDate" class="form-control" type="date" />
                 <span asp-validation-for="ExpenseDate" class="text-danger"></span>
             </div>
-            <input type="submit" value="Save" class="btn btn-primary" />
-        </form>
+            <div class="btn-group" role="group">
+                <button type="submit" class="btn myButton" style="margin-right:60px">Save</button>
+            </div>
+            <div class="btn-group" role="group">
+                <a asp-action="Expenses" class="btn myButtonDanger">Cancel</a>
+            </div>
+    </form>
 </div>

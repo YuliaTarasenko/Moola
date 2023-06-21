@@ -4,47 +4,56 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this income?</h3>
-<div>
-    <h4>Income</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IncomeDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IncomeDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Amount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Amount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Note)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Finance)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Finance.Name)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> | <a asp-action="Incomes" class="btn btn-danger">No</a>
-    </form>
+<div class="text-center mx-auto container">
+    <h1 class="myHeaderDanger" style="margin-top: 50px">Delete</h1>
+    <h3 class="myHeaderDangerH3">Are you sure you want to delete this income?</h3>
+    <div class="myDivDanger col-md-4 mx-auto">
+        <dl class="row align-items-center">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Amount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Amount)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Finance)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Finance.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Note)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Note)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IncomeDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IncomeDate)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="btn-group" role="group" style="margin-right:50px">
+                <input type="submit" value="Delete" class="btn myButtonDanger" />
+            </div>
+            <div class="btn-group" role="group">
+                <a asp-action="Incomes" class="btn myButtonDanger">No</a>
+            </div>
+        </form>
+    </div>
 </div>
+            
+            
+            
+        

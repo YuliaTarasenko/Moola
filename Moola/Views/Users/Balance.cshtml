@@ -2,28 +2,51 @@
     ViewData["Title"] = "Balance";
 }
 
-@if(User.Identity.IsAuthenticated)
-{
-    <h1>Hello, @User.Identity.Name</h1>
-    <h2>Your Balance</h2>
-    <p>@ViewBag.TotalAmount</p>
-    <p>@ViewBag.CashBalance</p>
-    <p>@ViewBag.CardBalance</p>
-    <div class="container text-center">
-        <div class="row align-items-center">
+<div class="container mx-auto text-center">
+    <h1 class="myHeader">Your Balance</h1>
+    <hr style="border: 1px solid limegreen " />
+    <div class="container px-4 text-center">
+        <div class="row gx-2">
             <div class="col">
-                Incomes
-                <p>@ViewBag.TotalIncomesAmount</p>
+                <div class="p-2 myDivBalance">
+                    <h2 class="myHeader2">Total Amount</h2>
+                    <p class="par">@ViewBag.TotalAmount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p>
+                </div>
             </div>
             <div class="col">
-                Expenses
-                <p>@ViewBag.TotalExpensesAmount</p>
+                <div class="p-2 myDivBalance">
+                    <h2 class="myHeader2">Cash Balance</h2>
+                    <p class="par">@ViewBag.CashBalance.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-2 myDivBalance">
+                    <h2 class="myHeader2">Card Balance</h2>
+                    <p class="par">@ViewBag.CardBalance.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p>
+                </div>
             </div>
         </div>
     </div>
-}
-else
-{
-    <h1>You are not logged in</h1>
-}
+    <div class="container px-4 text-center">
+        <div class="row gx-5">
+            <div class="col">
+                <div class="p-2 myDivBalance">
+                    <h2 class="myHeader2">Incomes</h2>
+                    <p class="par">@ViewBag.TotalIncomesAmount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p>
+                    <a href="@Url.Action("Create", "Incomes")" class="btn myButtonBig active">Add new Income</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-2 myDivBalance">
+                    <h2 class="myHeader2">Expenses</h2>
+                    <p class="par">@ViewBag.TotalExpensesAmount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)</p>
+                    <a href="@Url.Action("Create", "Expenses")" class="btn myButtonBig active">Add new Expense</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+   
 

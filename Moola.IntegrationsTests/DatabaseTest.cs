@@ -40,6 +40,6 @@
                 Assert.Equal(record.Note, retrievedRecord.Note);
                 Assert.Equal(record.FinanceId, retrievedRecord.FinanceId);
             }
-        }         
+        }
     }
 }

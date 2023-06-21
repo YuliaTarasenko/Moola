@@ -6,13 +6,13 @@
     var finance = Ctx.Finances.Select(f => new ValueTuple<int, string>(f.Id, f.Name)).ToList();
 }
 
-<div class="col-md-6 card p-3 mx-auto">
-    <h2>Edit Income</h2>
-    <form asp-action="Edit" method="post">
+<div class="col-md-8 mx-auto text-center">
+    <h2 class="myHeader">Edit Income</h2>
+    <form class="myForm" asp-action="Edit" method="post">
         @Html.HiddenFor(income => income.Id)
         <div class="form-group">
             <label asp-for="Amount">Amount</label>
-            <input asp-for="Amount" class="form-control" />
+            <input asp-for="Amount" class="form-control" type="number" step="0.01" value="@Model.Amount.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)" />
             <span asp-validation-for="Amount" class="text-danger"></span>
         </div>
         <div class="form-group">
@@ -42,10 +42,14 @@
         </div>
         <div class="form-group">
             <label asp-for="IncomeDate">Date</label>
-            <input asp-for="IncomeDate" class="form-control" type="date" value="@Model.IncomeDate.ToString("d")"/>
+            <input asp-for="IncomeDate" class="form-control" type="date"/>
             <span asp-validation-for="IncomeDate" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary mt-5">Save</button>
-        <button asp-action="Incomes">Back to List</button>
+        <div class="btn-group" role="group">
+            <button type="submit" class="btn myButton" style="margin-right:60px">Save</button>
+        </div>
+        <div class="btn-group" role="group">
+            <a asp-action="Incomes" class="btn myButtonDanger">Cancel</a>
+        </div>
     </form>
 </div>
