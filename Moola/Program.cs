@@ -4,7 +4,7 @@ using Moola.Models;
 using System;
 
 namespace Moola;
-public class Program
+public partial class Program
 {
     public static void Main(string[] args)
     {
@@ -15,7 +15,7 @@ public class Program
 
         //add authentication
         builder.Services.AddAuthentication(options => options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie();
+            .AddCookie(options=>options.LoginPath = "/Users/Login");
 
         // Add services to the container.
         builder.Services.AddControllersWithViews()
@@ -41,8 +41,6 @@ public class Program
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-
-        // builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<MyContext>().AddDefaultTokenProviders();
 
         //add swagger
         app.UseSwagger();
@@ -106,3 +104,6 @@ public class Program
         });
     }
 }
+
+//for integration Tests
+public partial class Program { }

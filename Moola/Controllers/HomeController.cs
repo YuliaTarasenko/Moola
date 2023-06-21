@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Moola.Logic;
 using Moola.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Moola.Controllers
 {
@@ -15,13 +16,14 @@ namespace Moola.Controllers
             _logger = logger;
             _context = context;
         }
-        
+
         //title page
         public IActionResult Index()
         {
             return View();
         }
 
+        //privacy policy
         public IActionResult Privacy()
         {
             return View();

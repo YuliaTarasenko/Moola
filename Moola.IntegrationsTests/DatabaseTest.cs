@@ -1,11 +1,4 @@
-﻿using Humanizer;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
-using Moq;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using System.Collections.Generic;
-
-namespace Moola.IntegrationsTests
+﻿namespace Moola.IntegrationsTests
 {
     public class DatabaseTest
     {

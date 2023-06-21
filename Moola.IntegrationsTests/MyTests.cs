@@ -1,12 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
-
 namespace Moola.IntegrationsTests
 {
     public class MyTests : IClassFixture<WebApplicationFactory<Program>>
@@ -32,40 +23,76 @@ namespace Moola.IntegrationsTests
         [InlineData("/Home/Information")]
         [InlineData("/Incomes/Incomes")]
         [InlineData("/Expenses/Expenses")]
-        [InlineData("/Users/Balance")]
         public async Task GetSomePages(string url)
         {
-            var client = _factory.CreateClient();
+            // Arrange
+            var client = _factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+            // Act
             var response = await client.GetAsync(url);
+            // Assert
             response.EnsureSuccessStatusCode();
-            Assert.Equal("text/html; charset=utf-8", response.Content.Headers.ContentType.ToString());
+            Assert.Equal("text/html; charset=utf-8", response.Content.Headers.ContentType?.ToString());
         }
 
         [Theory]
         [InlineData("/Users/Balance")]
-        public async Task Get_SecurePageIsReturnedForAnAuthenticatedUser(string url)
+        public async Task GetRedirectPagesIfNotAuth(string url)
         {
             // Arrange
-            var client = _factory.WithWebHostBuilder(builder =>
-            {
-                builder.ConfigureTestServices(services =>
-                    services.AddAuthentication(defaultScheme: "TestScheme")
-                        .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>(
-                            "TestScheme", _ => { }));
-            })
-                .CreateClient(new WebApplicationFactoryClientOptions
-                {
-                    AllowAutoRedirect = false,
-                });
+            var client = _factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+            //Act
+            var response = await client.GetAsync(url);
+            // Assert
+            // if it's not 200-299, it will throw an exception
+            Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
+            Assert.Contains("/Users/Login", response.Headers.Location?.OriginalString);
+        }
 
-            client.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue(scheme: "TestScheme");
+        [Theory]
+        [InlineData("/Users/Balance")]
+        public async Task GetSecurePageIsReturnedForAnAuthenticatedUser(string url)
+        {
+            // Arrange
+            var client = _factory.WithWebHostBuilder(builder=>
+            {
+                builder.ConfigureTestServices(service=>
+                service.AddAuthentication(defaultScheme: "TestScheme")
+                .AddScheme<AuthenticationSchemeOptions, UserAuthHandler>("TestScheme", _=> { }));
+            })
+                .CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme: "TestScheme");
             //Act
             var response = await client.GetAsync(url);
             // Assert
             response.EnsureSuccessStatusCode();
-            // if it's not 200-299, it will throw an exception
             Assert.Equal("text/html; charset=utf-8", response.Content.Headers.ContentType?.ToString());
         }
+
+        //[Theory]
+        //[InlineData("/Users/Balance")]
+        //public async Task GetPagesForAuthorizationsUsers(string url)
+        //{
+        //    await GetPageForRole<UserAuthHandler>(url);
+        //}
+
+        //private async Task GetPageForRole <T> (string url) 
+        //    where T: AuthenticationHandler<AuthenticationSchemeOptions>
+        //{
+        //    // Arrange
+        //    var hostBuilder = _factory.WithWebHostBuilder(builder =>
+        //    {
+        //        builder.ConfigureTestServices(service => service.AddAuthentication(defaultScheme: "TestScheme")
+        //        .AddScheme<AuthenticationSchemeOptions, T>("TestScheme", _ => { }));
+        //    });
+
+        //    var client = hostBuilder
+        //        .CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
+        //    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme: "TestScheme");
+        //    // act
+        //    var response = await client.GetAsync(url);
+        //    // assert
+        //    Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        //}
     }
 }

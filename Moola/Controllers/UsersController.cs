@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Moola.Models;
 using System.Security.Claims;
@@ -54,6 +55,7 @@ namespace Moola.Controllers
         }
 
         //display balance
+        [Authorize]
         public IActionResult Balance()
         {
             decimal totalAmount = _context.Incomes.Sum(i => i.Amount) - _context.Expenses.Sum(e => e.Amount);

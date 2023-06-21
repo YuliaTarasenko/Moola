@@ -1,19 +1,37 @@
 ﻿namespace Moola.IntegrationsTests
 { 
-    public class TestAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+    public class AdminAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        public TestAuthHandler(IOptionsMonitor<AuthenticationSchemeOptions> options,
+        public AdminAuthHandler(IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
             : base(options, logger, encoder, clock)
         {
         }
 
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+            => AuthTestExtensions.HandleAuthenticationForRole("Admin");
+    }
+
+    public class UserAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+    {
+        public UserAuthHandler(IOptionsMonitor<AuthenticationSchemeOptions> options,
+            ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
+            : base(options, logger, encoder, clock)
+        {
+        }
+
+        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+            => AuthTestExtensions.HandleAuthenticationForRole("User");
+    }
+
+    public static class AuthTestExtensions
+    {
+        public static Task<AuthenticateResult> HandleAuthenticationForRole(string role)
         {
             var claims = new[]
-            {
-                    new Claim(ClaimTypes.Name, "Test admin"),
-                    new(ClaimsIdentity.DefaultRoleClaimType, "Admin")
+                        {
+                    new Claim(ClaimTypes.Name, $"Test {role}"),
+                    new(ClaimsIdentity.DefaultRoleClaimType, role)
                 };
             var identity = new ClaimsIdentity(claims, "Test");
             var principal = new ClaimsPrincipal(identity);
