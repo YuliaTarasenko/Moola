@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Moola.Logic;
-using Moola.Models;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
-
-namespace Moola.Controllers
+﻿namespace Moola.Controllers
 {
     public class HomeController : Controller
     {
@@ -17,24 +10,23 @@ namespace Moola.Controllers
             _context = context;
         }
 
-        //title page
+        //Title Page
         public IActionResult Index()
         {
             return View();
         }
 
-        //privacy policy
+        //Privacy Policy
         public IActionResult Privacy()
         {
             return View();
         }
 
-        //information about the app
+        //Information about the App
         public IActionResult Information()
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

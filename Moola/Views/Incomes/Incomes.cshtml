@@ -1,8 +1,8 @@
 ﻿@model Income
 
 @{
-    var incomes10 = Ctx.Incomes.Include(i => i.Category).Include(i => i.Finance).OrderByDescending(i => i.IncomeDate).Take(10).ToList();
     ViewData["Title"] = "Incomes";
+    var incomes10 = Ctx.Incomes.Include(i => i.Category).Include(i => i.Finance).OrderByDescending(i => i.IncomeDate).Take(10).ToList();
 }
 
 <div class="text-center">

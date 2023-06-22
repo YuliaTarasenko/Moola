@@ -5,13 +5,13 @@
         private readonly MyContext _context;
         public UsersController(MyContext context) => _context = context;
 
-        //render the login page
+        //Render the Login page
         public IActionResult Login()
         {
             return View();
         }
 
-        //login the user
+        //Login the User
         [HttpPost]
         public async Task<IActionResult> Login(Account account)
         {
@@ -31,14 +31,14 @@
             return RedirectToAction("Balance");
         }
 
-        //logout the user
+        //Logout the User
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index","Home");
         }
 
-        //hash the password
+        //Hash the Password
         public IActionResult HashAll()
         {
             var accounts = _context.Accounts.ToList();
@@ -47,15 +47,17 @@
             return RedirectToAction("Balance");
         }
 
-        //display balance
+        //Display Balance
         [Authorize]
         public IActionResult Balance()
         {
             decimal totalAmount = _context.Incomes.Sum(i => i.Amount) - _context.Expenses.Sum(e => e.Amount);
             decimal totalIncomesAmount = _context.Incomes.Sum(i => i.Amount);
             decimal totalExpensesAmount = _context.Expenses.Sum(e => e.Amount);
-            decimal cardBalance = _context.Incomes.Include(i => i.Finance).Where(i => i.Finance.Name == "Credit").Sum(i => i.Amount) - _context.Expenses.Include(e => e.Finance).Where(e => e.Finance.Name == "Credit").Sum(e => e.Amount);
-            decimal cashBalance = _context.Incomes.Include(i => i.Finance).Where(i => i.Finance.Name == "Cash").Sum(i => i.Amount) - _context.Expenses.Include(e => e.Finance).Where(e => e.Finance.Name == "Cash").Sum(e => e.Amount);
+            decimal cardBalance = _context.Incomes.Include(i => i.Finance).Where(i => i.Finance.Name == "Credit")
+                .Sum(i => i.Amount) - _context.Expenses.Include(e => e.Finance).Where(e => e.Finance.Name == "Credit").Sum(e => e.Amount);
+            decimal cashBalance = _context.Incomes.Include(i => i.Finance).Where(i => i.Finance.Name == "Cash")
+                .Sum(i => i.Amount) - _context.Expenses.Include(e => e.Finance).Where(e => e.Finance.Name == "Cash").Sum(e => e.Amount);
             ViewBag.TotalAmount = totalAmount;
             ViewBag.TotalIncomesAmount = totalIncomesAmount;
             ViewBag.TotalExpensesAmount = totalExpensesAmount;

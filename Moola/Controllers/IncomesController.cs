@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Moola.Logic;
-using Moola.Models;
-
-namespace Moola.Controllers
+﻿namespace Moola.Controllers
 {
     public class IncomesController : Controller
     {

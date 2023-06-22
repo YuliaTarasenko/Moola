@@ -1,7 +1,6 @@
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\testhost.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Moola.deps.json
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Moola.runtimeconfig.json
-C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\appsettings.json
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Moola.staticwebassets.runtime.json
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Moola.exe
@@ -308,6 +307,7 @@ C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\refs\Sy
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\refs\WindowsBase.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Castle.Core.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Humanizer.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -368,6 +368,7 @@ C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Microso
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Moq.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\NuGet.Common.dll
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\NuGet.Configuration.dll
@@ -629,5 +630,3 @@ C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\obj\Debug\net7.0\refint\
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\obj\Debug\net7.0\Moola.IntegrationsTests.pdb
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\obj\Debug\net7.0\Moola.IntegrationsTests.genruntimeconfig.cache
 C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\obj\Debug\net7.0\ref\Moola.IntegrationsTests.dll
-C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Castle.Core.dll
-C:\Users\Юлия\Desktop\Moola\Moola.IntegrationsTests\bin\Debug\net7.0\Moq.dll

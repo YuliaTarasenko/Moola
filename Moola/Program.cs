@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.EntityFrameworkCore;
-using Moola.Models;
-using System;
-
 namespace Moola;
 public partial class Program
 {
@@ -45,7 +40,9 @@ public partial class Program
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
+        //minimal api
         ConfigureAPIs(app);
+        //start the app
         app.Run();
     }
 

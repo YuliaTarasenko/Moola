@@ -10,8 +10,5 @@
             var hashedBytes = sha256.ComputeHash(passwordBytes);
             return Convert.ToBase64String(hashedBytes);
         }
-
-        //Checking password
-        public static bool CheckPassword(string password, string hashedPassword)=> HashPassword(password) == hashedPassword;
     }
 }
